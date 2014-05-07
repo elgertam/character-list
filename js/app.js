@@ -15,14 +15,15 @@ angular.module('CharacterList', ['ngRoute'])
                 }
             }
         }).
-        when("/characters/:id", {
+        when("/characters/:name/:id", {
             templateUrl: "partials/character.html", 
             controller: "CharacterDetailController",
             resolve: {
                 character: function($route, characterService) {
-                    return characterService.getCharacter($route.current.params.id);
+                    return characterService
+                        .getCharacter($route.current.params.id);
                 }
-            }            
+            }
         }).
         otherwise({redirectTo: '/characters'});
 }]);

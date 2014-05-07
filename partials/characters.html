@@ -1,7 +1,8 @@
 <h1>Choose A Character</h1>
+<p><label for="filterInput">Search: </label><input type="text" name="filterInput" data-ng-model="characterFilter"></p>
 <table class="character-list">
-  <tr ng-repeat="character in characters">
-    <td><a href="#/characters/{{character.id}}"><img ng-src="{{character.thumbnail.path}}/standard_small.jpg"/></a></td>
-    <td><a href="#/characters/{{character.id}}">{{character.name}}</a></td>
+  <tr ng-repeat="character in characters | filter: { name: characterFilter }">
+    <td><a href="#/characters/{{character.name}}/{{character.id}}"><img ng-src="{{character.thumbnail.path}}/standard_small.jpg"/></a></td>
+    <td><a href="#/characters/{{character.name}}/{{character.id}}">{{character.name}}</a></td>
   </tr>
 </table>

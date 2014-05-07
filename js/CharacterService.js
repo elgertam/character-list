@@ -32,6 +32,6 @@ angular.module('CharacterList').factory('characterService', function($http, $q) 
         });
 
       return deferred.promise; 
-    }    
+    }
   };
 });
